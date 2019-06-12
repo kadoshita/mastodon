@@ -26,7 +26,7 @@ export const submitSearch = createDataLoadingThunk(
       q,
       type,
       resolve: signedIn,
-      limit: 11,
+      limit: 20,
     });
   },
   (data, { dispatch }) => {
