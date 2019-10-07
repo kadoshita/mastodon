@@ -76,6 +76,7 @@ module Admin
       request = Net::HTTP::Post.new(uri)
       request.content_type = 'application/json'
       request['X-Amz-Date'] = get_x_amz_date()
+      request['User-Agent']='Mozilla'
       request.body = JSON.dump({
         'id' => 1,
         'jsonrpc' => '2.0',
@@ -106,6 +107,7 @@ module Admin
       request.content_type = 'application/json'
       request['Authorization'] = 'Bearer '+token
       request['X-Amz-Date'] = get_x_amz_date()
+      request['User-Agent']='Mozilla'      
       request.body = JSON.dump({
         'id' => 1,
         'jsonrpc' => '2.0',
