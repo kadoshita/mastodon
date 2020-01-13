@@ -52,6 +52,7 @@ class LinkFooter extends React.PureComponent {
           {withHotkeys && <li><Link to='/keyboard-shortcuts'><FormattedMessage id='navigation_bar.keyboard_shortcuts' defaultMessage='Hotkeys' /></Link> · </li>}
           <li><a href='/auth/edit'><FormattedMessage id='getting_started.security' defaultMessage='Security' /></a> · </li>
           {!limitedFederationMode && <li><a href='/about/more' target='_blank'><FormattedMessage id='navigation_bar.info' defaultMessage='About this server' /></a> · </li>}
+          <li><a href='https://status.mstdn.sublimer.me' target='_blank'><FormattedMessage id='navigation_bar.status' defaultMessage='System status' /></a> · </li>
           {profileDirectory && <li><Link to='/directory'><FormattedMessage id='getting_started.directory' defaultMessage='Profile directory' /></Link> · </li>}
           <li><a href='https://joinmastodon.org/apps' target='_blank'><FormattedMessage id='navigation_bar.apps' defaultMessage='Mobile apps' /></a> · </li>
           <li><a href='/terms' target='_blank'><FormattedMessage id='getting_started.terms' defaultMessage='Terms of service' /></a> · </li>

@@ -309,6 +309,7 @@
   "navigation_bar.preferences": "ユーザー設定",
   "navigation_bar.public_timeline": "連合タイムライン",
   "navigation_bar.security": "セキュリティ",
+  "navigation_bar.status": "サーバー稼働状況",
   "notification.admin.sign_up": "{name} がサインアップしました",
   "notification.favourite": "{name}さんがあなたの投稿をお気に入りに登録しました",
   "notification.follow": "{name}さんにフォローされました",
