@@ -27,6 +27,7 @@ const mapStateToProps = state => ({
   showSearch: state.getIn(['search', 'submitted']) && !state.getIn(['search', 'hidden']),
   anyMedia: state.getIn(['compose', 'media_attachments']).size > 0,
   tagTemplate : state.getIn(['compose', 'tagTemplate']),
+  isInReply: state.getIn(['compose', 'in_reply_to']) !== null,
 });
 
 const mapDispatchToProps = (dispatch) => ({
