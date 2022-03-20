@@ -126,7 +126,7 @@ module Admin
 
       result=JSON.parse(response.body);
 
-      return result['result']['used']
+      return result['result']['storageInfo']['Used'][0]
     end
   end
 end
