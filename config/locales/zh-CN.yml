@@ -29,7 +29,7 @@ zh-CN:
     logged_in_as_html: 您当前以 %{username} 登录。
     logout_before_registering: 您已登录。
     privacy_policy: 隐私政策
-    rules: 服务器规则
+    rules: 实例规则
     rules_html: 如果你想要在此Mastodon服务器上拥有一个账户，你必须遵守相应的规则，摘要如下：
     see_whats_happening: 看看有什么新鲜事
     server_stats: 服务器统计数据：
