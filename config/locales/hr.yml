@@ -44,7 +44,6 @@ hr:
       are_you_sure: Jeste li sigurni?
       by_domain: Domena
       change_email:
-        changed_msg: E-pošta računa uspješno je promijenjena!
         current_email: Trenutna e-pošta
         label: Promijeni e-poštu
         new_email: Nova e-pošta
@@ -72,15 +71,12 @@ hr:
       moderation:
         all: Sve
     action_logs:
-      deleted_status: "(izbrisani status)"
       empty: Nema pronađenih izvješća.
       filter_by_action: Filtriraj prema radnji
       filter_by_user: Filtriraj prema korisniku
   application_mailer:
     settings: 'Promijeni postavke e-pošte: %{link}'
     view: 'Vidi:'
-  applications:
-    invalid_url: Unesena poveznica nije valjana
   auth:
     didnt_get_confirmation: Niste primili upute za potvrđivanje?
     forgot_password: Zaboravljena lozinka?
@@ -165,9 +161,6 @@ hr:
       one: 1 korištenje
       other: "%{count} korištenja"
   notification_mailer:
-    digest:
-      body: Ovo je kratak sažetak propuštenih poruka od Vašeg prošlog posjeta %{since}
-      mention: "%{name} Vas je spomenuo/la:"
     favourite:
       body: "%{name} je označio/la Vaš status favoritom:"
       subject: "%{name} je označio/la Vaš status favoritom"

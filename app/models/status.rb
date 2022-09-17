@@ -166,6 +166,14 @@ class Status < ApplicationRecord
     ].compact.join("\n\n")
   end
 
+  def to_log_human_identifier
+    account.acct
+  end
+
+  def to_log_permalink
+    ActivityPub::TagManager.instance.uri_for(self)
+  end
+
   def reply?
     !in_reply_to_id.nil? || attributes['reply']
   end
@@ -454,7 +462,7 @@ class Status < ApplicationRecord
   end
 
   def set_poll_id
-    update_column(:poll_id, poll.id) unless poll.nil?
+    update_column(:poll_id, poll.id) if association(:poll).loaded? && poll.present?
   end
 
   def set_visibility
