@@ -110,7 +110,9 @@ function statusToTextMentions(state, status) {
   return set.union(status.get('mentions').filterNot(mention => mention.get('id') === me).map(mention => `@${mention.get('acct')} `)).join('');
 }
 
-function clearAll(state) {
+function clearAll(state, visibility) {
+  const privacy = visibility ? visibility : state.get('default_privacy');
+
   return state.withMutations(map => {
     map.set('id', null);
     map.set('text', '');
@@ -119,6 +121,7 @@ function clearAll(state) {
     map.set('is_submitting', false);
     map.set('is_changing_upload', false);
     map.set('in_reply_to', null);
+    map.set('privacy', privacy);
     map.set('sensitive', state.get('default_sensitive'));
     map.set('language', state.get('default_language'));
     map.update('media_attachments', list => list.clear());
@@ -359,7 +362,7 @@ export default function compose(state = initialState, action) {
   case COMPOSE_REPLY_CANCEL:
   case COMPOSE_RESET:
   case COMPOSE_SUBMIT_SUCCESS:
-    return clearAll(state);
+    return clearAll(state, action.status.visibility);
   case COMPOSE_SUBMIT_FAIL:
     return state.set('is_submitting', false);
   case COMPOSE_UPLOAD_CHANGE_FAIL:
