@@ -4,6 +4,7 @@ cmd = sudo docker-compose
 cmd_web = sudo docker-compose run --rm web
 
 .PHONY : upgrade_process
+upgrade_process :
 	@echo "sudo docker-compose build --pull"
 	@echo "sudo docker-compose run --rm web rails db:migrate"
 	@echo "sudo docker-compose up -d"
