@@ -24,7 +24,7 @@ import Icon from 'mastodon/components/icon';
 
 const allowedAroundShortCode = '><\u0085\u0020\u00a0\u1680\u2000\u2001\u2002\u2003\u2004\u2005\u2006\u2007\u2008\u2009\u200a\u202f\u205f\u3000\u2028\u2029\u0009\u000a\u000b\u000c\u000d';
 
-const MAX_TOOT_CHAR = 5000
+const WORD_COUNT_LIMIT = 5000;
 
 const messages = defineMessages({
   placeholder: { id: 'compose_form.placeholder', defaultMessage: 'What is on your mind?' },
@@ -92,7 +92,7 @@ class ComposeForm extends ImmutablePureComponent {
     const fulltext = this.getFulltextForCharacterCounting();
     const isOnlyWhitespace = fulltext.length !== 0 && fulltext.trim().length === 0;
 
-    return !(isSubmitting || isUploading || isChangingUpload || length(fulltext) > 500 || (isOnlyWhitespace && !anyMedia));
+    return !(isSubmitting || isUploading || isChangingUpload || length(fulltext) > WORD_COUNT_LIMIT || (isOnlyWhitespace && !anyMedia));
   }
 
   handleSubmit = (e) => {
@@ -279,7 +279,7 @@ class ComposeForm extends ImmutablePureComponent {
           </div>
 
           <div className='character-counter__wrapper'>
-            <CharacterCounter max={MAX_TOOT_CHAR} text={this.getFulltextForCharacterCounting()} />
+            <CharacterCounter max={WORD_COUNT_LIMIT} text={this.getFulltextForCharacterCounting()} />
           </div>
         </div>
 
