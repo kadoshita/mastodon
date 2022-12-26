@@ -342,6 +342,7 @@ class Account < ApplicationRecord
   def save_with_optional_media!
     save!
   rescue ActiveRecord::RecordInvalid
+    Rails.logger.error("ActiveRecord::RecordInvalid id: '#{self.id}' username: '#{self.username}' display_name: '#{self.display_name}' uri: '#{self.uri}' domain: '#{self.domain}' url: '#{self.url}'")
     self.avatar = nil
     self.header = nil
 
