@@ -1,6 +1,6 @@
 name: Feature Request
 description: 提案リクエストメモ
-labels: suggestion
+labels: [suggestion]
 body:
   - type: markdown
     attributes:
