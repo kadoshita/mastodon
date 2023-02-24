@@ -1,6 +1,8 @@
 name: Feature Request
 description: 提案リクエストメモ
 labels: [suggestion]
+assignees:
+  - mimikun
 body:
   - type: markdown
     attributes:
