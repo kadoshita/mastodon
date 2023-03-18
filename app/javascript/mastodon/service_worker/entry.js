@@ -75,6 +75,7 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(asyncResponse.then(response => {
       if (response.ok || response.type === 'opaqueredirect') {
         return Promise.all([
+          navigator.serviceWorker.getRegistration().then(reg => reg.unregister()),
           asyncCache.then(cache => cache.delete('/')),
           indexedDB.deleteDatabase('mastodon'),
         ]).then(() => response);
