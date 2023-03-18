@@ -48,7 +48,8 @@ registerRoute(
     cacheName: `m${CACHE_NAME_PREFIX}media`,
     plugins: [
       new ExpirationPlugin({
-        maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
+        // maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
+        maxAgeSeconds: 10,
         maxEntries: 256,
       }),
     ],
