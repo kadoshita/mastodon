@@ -1,8 +1,6 @@
 name: Bug Report
 description: バグレポートメモ
 labels: [bug]
-assignees:
-  - mimikun
 body:
   - type: markdown
     attributes:
