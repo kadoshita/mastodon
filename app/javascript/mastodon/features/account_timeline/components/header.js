@@ -107,7 +107,7 @@ export default class Header extends ImmutablePureComponent {
   };
 
   render () {
-    const { account, hidden, hideTabs, identity_proofs } = this.props;
+    const { account, hidden, hideTabs } = this.props;
 
     if (account === null) {
       return null;
