@@ -1,22 +1,22 @@
 name: Feature Request
-description: 提案リクエストメモ
-labels: [suggestion]
+description: I have a suggestion
+labels: suggestion
 body:
   - type: markdown
     attributes:
       value: |
-        issue のタイトルは、簡潔で明確なものを使用してください。
+        Please use a concise and distinct title for the issue.
 
-        検討してください。REST APIを使用したサードパーティアプリとして実装することはできないか？
+        Consider: Could it be implemented as a 3rd party app using the REST API instead?
   - type: textarea
     attributes:
-      label: ピッチ
-      description: 機能に関するあなたのアイデアを記述してください。過去に提案され、実装され、断られたことがないことを確認してください。
+      label: Pitch
+      description: Describe your idea for a feature. Make sure it has not already been suggested/implemented/turned down before.
     validations:
       required: true
   - type: textarea
     attributes:
-      label: モチベーション
-      description: なぜこの機能が必要なのでしょうか？誰が恩恵を受けるのでしょうか？
+      label: Motivation
+      description: Why do you think this feature is needed? Who would benefit from it?
     validations:
       required: true

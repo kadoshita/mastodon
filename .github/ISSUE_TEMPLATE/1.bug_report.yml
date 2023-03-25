@@ -1,17 +1,17 @@
 name: Bug Report
-description: バグレポートメモ
-labels: [bug]
+description: If something isn't working as expected
+labels: bug
 body:
   - type: markdown
     attributes:
       value: |
-        過去に報告されたことのない、あるいはすでに修正されたことのない、新しいバグを提出していることを確認してください。
+        Make sure that you are submitting a new bug that was not previously reported or already fixed.
 
-        issue のタイトルは、簡潔で明確なものを使用してください。
+        Please use a concise and distinct title for the issue.
   - type: textarea
     attributes:
-      label: 問題を再現するための手順
-      description: 何をしようとしていたのか？
+      label: Steps to reproduce the problem
+      description: What were you trying to do?
       value: |
         1.
         2.
@@ -21,28 +21,28 @@ body:
       required: true
   - type: input
     attributes:
-      label: 期待される振る舞い
-      description: どのように動いてほしかったですか？
+      label: Expected behaviour
+      description: What should have happened?
     validations:
       required: true
   - type: input
     attributes:
-      label: 実際の振る舞い
-      description: 実際にはどのように動きましたか？
+      label: Actual behaviour
+      description: What happened?
     validations:
       required: true
   - type: textarea
     attributes:
-      label: 詳細説明
+      label: Detailed description
     validations:
       required: false
   - type: textarea
     attributes:
-      label: 環境
+      label: Specifications
       description: |
-        このバグを発見したMastodonのバージョンまたはコミットハッシュは何ですか？
+        What version or commit hash of Mastodon did you find this bug in?
 
-        フロントエンドの問題の場合、使用していたブラウザとOSを教えてください。
+        If a front-end issue, what browser and operating systems were you using?
       placeholder: |
         Mastodon 3.5.3 (or Edge)
         Ruby 2.7.6 (or v3.1.2)
@@ -50,7 +50,7 @@ body:
 
         Google Chrome 106.0.5249.119
         Firefox 105.0.3
-
-        など...
+        
+        etc...
     validations:
       required: true
