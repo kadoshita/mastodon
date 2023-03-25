@@ -11,7 +11,6 @@ export default class Header extends ImmutablePureComponent {
 
   static propTypes = {
     account: ImmutablePropTypes.map,
-    identity_proofs: ImmutablePropTypes.list,
     onFollow: PropTypes.func.isRequired,
     onBlock: PropTypes.func.isRequired,
     onMention: PropTypes.func.isRequired,
@@ -120,7 +119,6 @@ export default class Header extends ImmutablePureComponent {
 
         <InnerHeader
           account={account}
-          identity_proofs={identity_proofs}
           onFollow={this.handleFollow}
           onBlock={this.handleBlock}
           onMention={this.handleMention}
