@@ -48,8 +48,7 @@ registerRoute(
     cacheName: `m${CACHE_NAME_PREFIX}media`,
     plugins: [
       new ExpirationPlugin({
-        // maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
-        maxAgeSeconds: 10,
+        maxAgeSeconds: 7 * 24 * 60 * 60, // 1 week
         maxEntries: 256,
       }),
     ],
@@ -76,7 +75,6 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(asyncResponse.then(response => {
       if (response.ok || response.type === 'opaqueredirect') {
         return Promise.all([
-          navigator.serviceWorker.getRegistration().then(reg => reg.unregister()),
           asyncCache.then(cache => cache.delete('/')),
           indexedDB.deleteDatabase('mastodon'),
         ]).then(() => response);
