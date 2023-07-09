@@ -165,6 +165,7 @@ ja:
       appeal:
         text: この決定を覆すべき理由を説明してください
       defaults:
+        action_type: 対応方法
         autofollow: 招待から参加後、あなたをフォロー
         avatar: アイコン
         bot: これはBOTアカウントです
@@ -186,6 +187,7 @@ ja:
         locale: 言語
         locked: 承認制アカウントにする
         max_uses: 使用できる回数
+        message: メッセージ
         new_password: 新しいパスワード
         note: プロフィール
         otp_attempt: 二要素認証コード
