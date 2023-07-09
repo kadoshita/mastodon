@@ -537,6 +537,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_071624) do
     t.boolean "overwrite", default: false, null: false
   end
 
+  create_table "inquiries", force: :cascade do |t|
+    t.string "message"
+    t.integer "status", default: 0, null: false
+    t.integer "action_type", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_inquiries_on_user_id"
+  end
+
   create_table "invites", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.string "code", default: "", null: false
@@ -1276,6 +1286,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_071624) do
   add_foreign_key "generated_annual_reports", "accounts"
   add_foreign_key "identities", "users", name: "fk_bea040f377", on_delete: :cascade
   add_foreign_key "imports", "accounts", name: "fk_6db1b6e408", on_delete: :cascade
+  add_foreign_key "inquiries", "users"
   add_foreign_key "invites", "users", on_delete: :cascade
   add_foreign_key "list_accounts", "accounts", on_delete: :cascade
   add_foreign_key "list_accounts", "follow_requests", on_delete: :cascade
