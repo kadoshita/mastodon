@@ -1,0 +1,15 @@
+%tr
+  %td{ colspan: 2 }
+    = inquiry.message
+  %td
+    = I18n.t("inquiries.status.#{inquiry.status}")
+  %td
+    = I18n.t("inquiries.action_type.#{inquiry.action_type}")
+
+  - if current_user.role.can?(:administrator)
+    %td
+      = inquiry.user.account.username
+
+  %td
+    %time.formatted{ datetime: inquiry.created_at.iso8601, title: l(inquiry.created_at) }
+      = l inquiry.created_at
