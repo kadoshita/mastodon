@@ -1368,6 +1368,25 @@ en:
       expires_at: Expires
       uses: Uses
     title: Invite people
+  inquiries:
+    title: Inquiry
+    prompt: Submit inquiry message to administrator
+    action_type:
+      no_action: No answer required(private)
+      direct_message: Direct Message(private)
+      reply: Send Reply(public)
+      documentation: Add help page(public)
+    action_type_prompt: No answer required(private)
+    status:
+      active: Active
+      resolved: Resolved
+    submit: Submit
+    table:
+      message: Message
+      status: Status
+      action_type: Action
+      sender: Sender
+      created_at: Timestamp
   lists:
     errors:
       limit: You have reached the maximum number of lists
