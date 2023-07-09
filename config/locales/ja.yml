@@ -1342,6 +1342,25 @@ ja:
       expires_at: 有効期限
       uses: 使用
     title: 新規ユーザーの招待
+  inquiries:
+    title: お問い合わせ
+    prompt: 管理者に問い合わせを送ることができます
+    action_type:
+      no_action: 回答不要(非公開)
+      direct_message: DMで回答(非公開)
+      reply: リプライで回答(公開)
+      documentation: ヘルプページに追加(公開)
+    action_type_prompt: 回答不要(非公開)
+    status:
+      active: 対応中
+      resolved: 解決済み
+    submit: 送信
+    table:
+      message: メッセージ
+      status: ステータス
+      action_type: 対応方法
+      sender: 送信者
+      created_at: 送信日時
   lists:
     errors:
       limit: リストの上限数に達しています

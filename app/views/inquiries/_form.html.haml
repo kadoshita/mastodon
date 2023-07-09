@@ -1,0 +1,12 @@
+= simple_form_for(@inquiry, url: inquiries_path) do |f|
+  = render 'shared/error_messages', object: @inquiry
+
+  .fields-group
+    = f.text_area :message, wrapper: :with_block_label, rows: 5
+
+  .fields-row
+    .fields-row__column.fields-row__column-6.fields-group
+      = f.input :action_type, wrapper: :with_label, collection: ['no_action', 'direct_message', 'reply', 'documentation'], label_method: lambda { |i| I18n.t("inquiries.action_type.#{i}") }, prompt: I18n.t('inquiries.action_type_prompt')
+
+  .actions
+    = f.button :button, t('inquiries.submit'), type: :submit

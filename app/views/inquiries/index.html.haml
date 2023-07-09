@@ -1,0 +1,25 @@
+- content_for :page_title do
+  = t('inquiries.title')
+
+%p= t('inquiries.prompt')
+
+= render 'form'
+
+%hr.spacer/
+
+.simple_form
+  %table.table.table--inquiries
+    %thead
+      %tr
+        %th
+        %th= t('inquiries.table.message')
+        %th= t('inquiries.table.status')
+        %th= t('inquiries.table.action_type')
+        
+        - if current_user.role.can?(:administrator)
+          %th= t('inquiries.table.sender')
+
+        %th= t('inquiries.table.created_at')
+        %th
+    %tbody
+      = render @inquiries
