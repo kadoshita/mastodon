@@ -204,6 +204,7 @@ Rails.application.routes.draw do
   resources :tags,   only: [:show]
   resources :emojis, only: [:show]
   resources :invites, only: [:index, :create, :destroy]
+  resources :inquiries, only: [:index, :create]
   resources :filters, except: [:show] do
     resources :statuses, only: [:index], module: :filters do
       collection do
