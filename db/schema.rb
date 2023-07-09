@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_12_06_114142) do
+ActiveRecord::Schema.define(version: 2023_07_09_043109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -499,6 +499,16 @@ ActiveRecord::Schema.define(version: 2022_12_06_114142) do
     t.datetime "data_updated_at"
     t.bigint "account_id", null: false
     t.boolean "overwrite", default: false, null: false
+  end
+
+  create_table "inquiries", force: :cascade do |t|
+    t.string "message"
+    t.integer "status", default: 0, null: false
+    t.integer "action_type", default: 0, null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_inquiries_on_user_id"
   end
 
   create_table "invites", force: :cascade do |t|
@@ -1168,6 +1178,7 @@ ActiveRecord::Schema.define(version: 2022_12_06_114142) do
   add_foreign_key "follows", "accounts", name: "fk_32ed1b5560", on_delete: :cascade
   add_foreign_key "identities", "users", name: "fk_bea040f377", on_delete: :cascade
   add_foreign_key "imports", "accounts", name: "fk_6db1b6e408", on_delete: :cascade
+  add_foreign_key "inquiries", "users"
   add_foreign_key "invites", "users", on_delete: :cascade
   add_foreign_key "list_accounts", "accounts", on_delete: :cascade
   add_foreign_key "list_accounts", "follows", on_delete: :cascade
