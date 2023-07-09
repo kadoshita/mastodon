@@ -36,6 +36,7 @@ SimpleNavigation::Configuration.run do |navigation|
     end
 
     n.item :user_invites, safe_join([material_symbol('person_add'), t('invites.title')]), invites_path, if: -> { current_user.can?(:invite_users) && current_user.functional? && !self_destruct }
+    n.item :inquiries, safe_join([material_symbol('question_mark'), t('inquiries.title')]), inquiries_path, if: -> { current_user.functional? }
     n.item :development, safe_join([material_symbol('code'), t('settings.development')]), settings_applications_path, highlights_on: %r{/settings/applications}, if: -> { current_user.functional? && !self_destruct }
 
     n.item :trends, safe_join([material_symbol('trending_up'), t('admin.trends.title')]), admin_trends_statuses_path, if: -> { current_user.can?(:manage_taxonomies) && !self_destruct } do |s|
