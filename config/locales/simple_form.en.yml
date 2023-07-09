@@ -175,6 +175,7 @@ en:
       appeal:
         text: Explain why this decision should be reversed
       defaults:
+        action_type: Action
         autofollow: Invite to follow your account
         avatar: Profile picture
         bot: This is an automated account
@@ -194,6 +195,7 @@ en:
         irreversible: Drop instead of hide
         locale: Interface language
         max_uses: Max number of uses
+        message: Message
         new_password: New password
         note: Bio
         otp_attempt: Two-factor code
