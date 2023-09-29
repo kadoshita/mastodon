@@ -11,6 +11,9 @@
     .fields-group
       = ff.input :aggregate_reblogs, wrapper: :with_label, recommended: true, label: I18n.t('simple_form.labels.defaults.setting_aggregate_reblogs'), hint: I18n.t('simple_form.hints.defaults.setting_aggregate_reblogs')
 
+    .fields-group
+      = ff.input :show_published_alert, wrapper: :with_label, label: I18n.t('simple_form.labels.defaults.setting_show_published_alert'), hint: I18n.t('simple_form.hints.defaults.setting_show_published_alert')
+
     %h4= t 'preferences.posting_defaults'
 
     .fields-row
