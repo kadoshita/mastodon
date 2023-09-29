@@ -138,4 +138,8 @@ module User::HasSettings
   def hide_all_media?
     settings['web.display_media'] == 'hide_all'
   end
+
+  def setting_show_published_alert
+    settings['show_published_alert']
+  end
 end
