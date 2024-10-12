@@ -168,14 +168,6 @@ jobs:
 
       - run: bin/flatware rspec
 
-      - name: Upload coverage reports to Codecov
-        if: matrix.ruby-version == '.ruby-version'
-        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v6
-        with:
-          files: coverage/lcov/*.lcov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
   test-e2e:
     if: true == false # skip this job
     name: End to End testing
