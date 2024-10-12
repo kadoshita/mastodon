@@ -165,14 +165,6 @@ jobs:
 
       - run: bin/flatware rspec -r ./spec/flatware_helper.rb
 
-      - name: Upload coverage reports to Codecov
-        if: matrix.ruby-version == '.ruby-version'
-        uses: codecov/codecov-action@v5
-        with:
-          files: coverage/lcov/*.lcov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
   test-imagemagick:
     name: ImageMagick tests
     runs-on: ubuntu-latest
