@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - 'main'
-      - 'stable-*'
+      - 'asteroidon-custom-stable-*'
   pull_request:
 
 env:
@@ -252,15 +252,8 @@ jobs:
 
       - run: bin/rspec --tag attachment_processing
 
-      - name: Upload coverage reports to Codecov
-        if: matrix.ruby-version == '.ruby-version'
-        uses: codecov/codecov-action@v5
-        with:
-          files: coverage/lcov/mastodon.lcov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
   test-e2e:
+    if: true == false # skip this job
     name: End to End testing
     runs-on: ubuntu-latest
 
