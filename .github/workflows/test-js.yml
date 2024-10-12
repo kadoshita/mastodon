@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 'main'
-      - 'stable-*'
+      - 'asteroidon-custom-stable-*'
     paths:
       - 'package.json'
       - 'yarn.lock'
