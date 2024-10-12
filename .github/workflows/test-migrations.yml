@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - 'main'
-      - 'stable-*'
+      - 'asteroidon-custom-stable-*'
     paths:
       - 'Gemfile*'
       - '.ruby-version'
