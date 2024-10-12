@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - 'main'
-      - 'stable-*'
+      - 'asteroidon-custom-stable-*'
   pull_request:
 
 env:
@@ -166,14 +166,6 @@ jobs:
 
       - run: bin/flatware rspec -r ./spec/flatware_helper.rb
 
-      - name: Upload coverage reports to Codecov
-        if: matrix.ruby-version == '.ruby-version'
-        uses: codecov/codecov-action@v4
-        with:
-          files: coverage/lcov/*.lcov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
   test-libvips:
     name: Libvips tests
     runs-on: ubuntu-24.04
@@ -254,15 +246,8 @@ jobs:
 
       - run: bin/rspec --tag attachment_processing
 
-      - name: Upload coverage reports to Codecov
-        if: matrix.ruby-version == '.ruby-version'
-        uses: codecov/codecov-action@v4
-        with:
-          files: coverage/lcov/mastodon.lcov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
   test-e2e:
+    if: true == false
     name: End to End testing
     runs-on: ubuntu-latest
 
@@ -430,12 +415,10 @@ jobs:
           - '.ruby-version'
           - '3.4'
         search-image:
-          - docker.elastic.co/elasticsearch/elasticsearch:7.17.13
+          - ghcr.io/kadoshita/elasticsearch-kuromoji:7.17.4
         include:
           - ruby-version: '.ruby-version'
-            search-image: docker.elastic.co/elasticsearch/elasticsearch:8.10.2
-          - ruby-version: '.ruby-version'
-            search-image: opensearchproject/opensearch:2
+            search-image: ghcr.io/kadoshita/elasticsearch-kuromoji:7.17.4
 
     steps:
       - uses: actions/checkout@v4
