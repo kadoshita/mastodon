@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - 'main'
-      - 'stable-*'
+      - 'asteroidon-custom-stable-*'
   pull_request:
 
 env:
@@ -168,13 +168,6 @@ jobs:
 
       - run: bin/flatware rspec
 
-      - name: Upload coverage reports to Codecov
-        if: matrix.ruby-version == '.ruby-version'
-        uses: codecov/codecov-action@fb8b3582c8e4def4969c97caa2f19720cb33a72f # v6
-        with:
-          files: coverage/lcov/*.lcov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
   test-e2e:
     name: End to End testing
@@ -358,12 +351,10 @@ jobs:
           - '3.4'
           - '.ruby-version'
         search-image:
-          - docker.elastic.co/elasticsearch/elasticsearch:7.17.29
+          - ghcr.io/kadoshita/elasticsearch-kuromoji:7.17.4
         include:
           - ruby-version: '.ruby-version'
-            search-image: docker.elastic.co/elasticsearch/elasticsearch:8.19.2
-          - ruby-version: '.ruby-version'
-            search-image: opensearchproject/opensearch:2
+            search-image: ghcr.io/kadoshita/elasticsearch-kuromoji:7.17.4
 
     steps:
       - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
