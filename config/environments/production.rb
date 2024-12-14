@@ -54,7 +54,10 @@ Rails.application.configure do
   config.log_level = ENV.fetch('RAILS_LOG_LEVEL', 'info').to_sym
 
   # Prepend all log lines with the following tags.
-  config.log_tags = [:request_id]
+  config.log_tags = [:request_id, proc {
+    # ref: https://zenn.dev/m2/articles/f7721fe51c1ecb
+    OpenTelemetry::Trace.current_span.context.hex_trace_id
+  }]
 
   # Use a different cache store in production.
   config.cache_store = :redis_cache_store, REDIS_CONFIGURATION.cache

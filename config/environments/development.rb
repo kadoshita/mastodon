@@ -41,6 +41,10 @@ Rails.application.configure do
     logger.formatter = config.log_formatter
     config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
+  config.log_tags = [:request_id, proc {
+    # ref: https://zenn.dev/m2/articles/f7721fe51c1ecb
+    OpenTelemetry::Trace.current_span.context.hex_trace_id
+  }]
 
   # Generate random VAPID keys
   Webpush.generate_key.tap do |vapid_key|
