@@ -6,6 +6,11 @@ class Mastodon::RackMiddleware
   end
 
   def call(env)
+    # ref: https://tech.unifa-e.com/entry/2017/01/31/192820
+    OpenTelemetry::Trace.current_span.add_attributes({
+      'http.request_id' => env['action_dispatch.request_id'],
+    })
+
     @app.call(env)
   ensure
     clean_up_sockets!
