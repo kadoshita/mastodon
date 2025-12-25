@@ -40,7 +40,7 @@ class InquiriesController < ApplicationController
   end
 
   def resource_params
-    params.require(:inquiry).permit(:message, :action_type, :status)
+    params.expect(inquiry: [:message, :action_type, :status])
   end
 
   def set_body_classes
