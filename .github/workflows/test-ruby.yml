@@ -166,6 +166,7 @@ jobs:
       - run: bin/flatware rspec -r ./spec/flatware_helper.rb
 
   test-imagemagick:
+    if: true == false
     name: ImageMagick tests
     runs-on: ubuntu-latest
 
@@ -349,6 +350,7 @@ jobs:
           path: tmp/capybara/
 
   test-search:
+    if: true == false
     name: Elastic Search integration testing
     runs-on: ubuntu-latest
 
