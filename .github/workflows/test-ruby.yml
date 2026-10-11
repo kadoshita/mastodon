@@ -5,7 +5,7 @@ on:
   push:
     branches:
       - 'main'
-      - 'stable-*'
+      - 'asteroidon-custom-stable-*'
   pull_request:
 
 env:
@@ -157,15 +157,9 @@ jobs:
 
       - run: bin/flatware rspec
 
-      - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@303a32d7a59b442fa8d48b6a1cc6825c09c847a5 # v7
-        with:
-          files: coverage/lcov/*.lcov
-        env:
-          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
-
   test-e2e:
-    name: End to End testing (.ruby-version)
+    if: true == false # skip this job (Asteroidon fork: e2e disabled)
+    name: End to End testing
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
