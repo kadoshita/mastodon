@@ -13,9 +13,6 @@ on:
   pull_request:
     paths: *paths
 
-  schedule:
-    - cron: '0 5 * * 1'
-
 jobs:
   security:
     runs-on: ubuntu-26.04
