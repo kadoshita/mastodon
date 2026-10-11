@@ -134,7 +134,7 @@ function clearAll(state) {
     map.set('is_submitting', false);
     map.set('is_changing_upload', false);
     map.set('in_reply_to', null);
-    map.set('privacy', state.get('default_privacy'));
+    // map.set('privacy', state.get('default_privacy'));
     map.set('sensitive', state.get('default_sensitive'));
     map.set('spoiler', state.get('default_spoiler_field', false));
     map.set('language', state.get('default_language'));
