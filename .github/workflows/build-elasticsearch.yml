@@ -1,0 +1,33 @@
+name: Build & publish Custom Elasticsearch image
+on:
+  workflow_dispatch:
+    inputs:
+      ES_VERSION:
+        description: Elasticsearch version to build & publish.
+        required: true
+        default: '8.19.15'
+        type: string
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@dbcb813823bdd20940b903addbd779551569679f # v4.6.0
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build & publish Custom Elasticsearch image
+        run: |
+          version="${{ inputs.ES_VERSION }}"
+          image="ghcr.io/kadoshita/elasticsearch-kuromoji:${version}"
+          docker build -f .github/Dockerfile.elasticsearch --build-arg ES_VERSION="${version}" -t "${image}" .
+          docker push "${image}"
