@@ -290,24 +290,10 @@ jobs:
           - 6379:6379
 
       elasticsearch:
-        image: ${{ contains(matrix.search-image, 'elasticsearch') && matrix.search-image || '' }}
+        image: ${{ contains(matrix.search-image, 'elasticsearch-kuromoji') && matrix.search-image || '' }}
         env:
           discovery.type: single-node
           xpack.security.enabled: false
-        options: >-
-          --health-cmd "curl http://localhost:9200/_cluster/health"
-          --health-interval 2s
-          --health-timeout 3s
-          --health-retries 50
-        ports:
-          - 9200:9200
-
-      opensearch:
-        image: ${{ contains(matrix.search-image, 'opensearch') && matrix.search-image || '' }}
-        env:
-          discovery.type: single-node
-          DISABLE_INSTALL_DEMO_CONFIG: true
-          DISABLE_SECURITY_PLUGIN: true
         options: >-
           --health-cmd "curl http://localhost:9200/_cluster/health"
           --health-interval 2s
@@ -329,10 +315,10 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        search-image:
-          - docker.elastic.co/elasticsearch/elasticsearch:7.17.29
-          - docker.elastic.co/elasticsearch/elasticsearch:8.19.23
-          - opensearchproject/opensearch:2
+        search-image: ghcr.io/kadoshita/elasticsearch-kuromoji:8.19.15
+      include:
+        - ruby-version: '.ruby-version'
+          search-image: ghcr.io/kadoshita/elasticsearch-kuromoji:8.19.15
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
